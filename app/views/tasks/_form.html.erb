@@ -1,0 +1,15 @@
+<%= simple_form_for @task do |t| %>
+  <%= t.input :title %>
+  <%= t.input :details %>
+  <% unless params[:action] == "new" %>
+    <% if @task.completed %>
+      <%= t.check_box :completed, class: "far fa-square" %>
+      <%= "Completed" %>
+      </i>
+    <% else %>
+      <%= t.check_box :completed, class: "far fa-square" %>
+      <%= "Pending" %>
+    <% end %>
+  <% end %>
+  <%= t.button :submit, class: "btn-primary" %>
+<% end %>
